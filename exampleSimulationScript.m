@@ -4,7 +4,7 @@
 %Adolph (2014) APP. Determine whether the particular sub block procedure
 %used yields similar results when simulating data with the same
 %pretest/posttest errors as Franchak & Adolph (2014). Simulate running 30
-%participants with true afordance thresholds of M = 28, SD = 2. Simulate
+%participants with true affordance thresholds of M = 28, SD = 2. Simulate
 %pretest judgments that erred by M = 10.5 cm SD = 6.5 and posttest
 %judgments that erred by 0.5 cm = SD 3. 
 clear all 
