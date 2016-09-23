@@ -1,8 +1,8 @@
-function [responses_moa] = methodOfAdjustment(num_trials, start_dir)
+function [output] = methodOfAdjustment(out_dir, id, condition,num_trials, start_dir, write_file)
 %Start_dir 1 equals narrow, start_dir 0 equals wide
 %Can exit prematurely, responses will be length of actual judgments
 %collected
-
+outfile = strcat(out_dir,'/',id, '_', condition,'.csv');
 trial_num = 1;
 while(1)
     %Alternate MOA direction
@@ -14,8 +14,11 @@ while(1)
     reply = input(sprintf('JUDGMENT #%d %s>> ',trial_num,direction),'s');    
     %If reply is a number, record value and go to next trial
     if ~isnan(str2double(reply))
-        responses_moa(trial_num) = str2double(reply); %#ok<*AGROW>
+        responses(trial_num) = str2double(reply); %#ok<*AGROW>
         trial_num = trial_num + 1;
+        if write_file
+            csvwrite(outfile, responses');
+        end
     elseif strcmp(reply, 'exit')
         break;
     else
@@ -25,4 +28,11 @@ while(1)
     if trial_num == num_trials + 1
         break;
     end    
+end
+
+output.id = id;
+output.condition = condition;
+output.responses = responses;
+if write_file
+    csvwrite(outfile, responses');
 end
