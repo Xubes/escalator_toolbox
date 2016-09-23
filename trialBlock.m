@@ -83,6 +83,8 @@ trial_subblock = []; %keep track of which block of trials
 trial_num = 1;
 first_block = true;
 
+disp(sprintf('Starting trial block, condition = %s',condition));
+
 %ITERATE THROUGH SUB BLOCKS
 for b = 1:numel(sub_blocks)
     
@@ -106,7 +108,7 @@ for b = 1:numel(sub_blocks)
         mode = 0;
     end
     
-    disp(sprintf('Starting block %d of %d, %s', b, numel(sub_blocks), sub_blocks{b}.mode));
+    disp(sprintf('Starting sub block %d of %d, %s', b, numel(sub_blocks), sub_blocks{b}.mode));
     
     %Assign blocked units based on prefs 
     if strcmp(sub_blocks{b}.mode, 'blocked')        
@@ -305,5 +307,5 @@ if save_figs
     psychometricFxGraph(id, condition, mu_est, sigma_est, trial_unit_fit, trial_resp_fit, graphfile) 
 end
 
-
+disp('Completed trial block')
 end

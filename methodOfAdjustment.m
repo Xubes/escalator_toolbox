@@ -1,15 +1,16 @@
 function [output] = methodOfAdjustment(out_dir, id, condition,num_trials, start_dir, write_file)
-%Start_dir 1 equals narrow, start_dir 0 equals wide
+%Start_dir 1 equals ascending, start_dir 0 equals descending
 %Can exit prematurely, responses will be length of actual judgments
 %collected
+disp(sprintf('Starting method of adjustment block, condition = %s',condition));
 outfile = strcat(out_dir,'/',id, '_', condition,'.csv');
 trial_num = 1;
 while(1)
     %Alternate MOA direction
     if mod(trial_num,2) == start_dir
-        direction = 'narrow';
+        direction = 'ascending';
     else
-        direction = 'wide';
+        direction = 'descending';
     end
     reply = input(sprintf('JUDGMENT #%d %s>> ',trial_num,direction),'s');    
     %If reply is a number, record value and go to next trial
@@ -36,3 +37,5 @@ output.responses = responses;
 if write_file
     csvwrite(outfile, responses');
 end
+
+disp('Completed method of adjustment block')
