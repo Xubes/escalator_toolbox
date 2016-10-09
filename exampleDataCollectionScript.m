@@ -34,12 +34,12 @@ psychometricFxGraph(output);
 %%
 %Assess goodness of fit of the output with 500 bootstrap iterations, save
 %the results of the goodness of fit tests to fit_output
-[fit_output] = goodnessOfFit(output, 400);
+fit_output = goodnessOfFit(output, 400);
 disp(fit_output);
 %%
 %Assess confidence intervals for the threshold and slope parameters by
 %resampling 500 times. Save the output of those simulations to sim_output.
-[sim_output] = bootstrapCI(output, 500);
+sim_output = bootstrapCI(output, 500);
 disp(sim_output);
 %%
 %Graph the function fit relative to the 95% confidence interval for the
