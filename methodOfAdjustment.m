@@ -3,7 +3,7 @@ function [output] = methodOfAdjustment(out_dir, id, condition,num_trials, start_
 %Can exit prematurely, responses will be length of actual judgments
 %collected
 disp(sprintf('Starting method of adjustment block, condition = %s',condition));
-outfile = strcat(out_dir,'/',id, '_', condition,'.csv');
+outfile = strcat(out_dir,'/',id, '_', condition,'_moa.csv');
 trial_num = 1;
 while(1)
     %Alternate MOA direction
