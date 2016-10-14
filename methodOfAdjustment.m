@@ -65,6 +65,7 @@ end
 output.id = id;
 output.condition = condition;
 output.responses = responses;
+output.threshold = mean(responses);
 if write_file
     csvwrite(outfile, responses');
 end
