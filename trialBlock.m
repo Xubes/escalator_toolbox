@@ -54,6 +54,7 @@ function output = trialBlock(out_dir, id, condition, stim_levels, sub_blocks, sa
 %   entire trial block
 
 simulate = false;
+rng('shuffle');
 
 if nargin > 6
     simulate = true;
