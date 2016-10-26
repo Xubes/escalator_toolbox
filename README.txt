@@ -67,6 +67,7 @@ Post processing functions:
 - bootstrapCI: A parametric bootstrap of the data. Data are resamples over many Monte Carlo iterations to yield confidence intervals of the parameters, mean resampled parameters, and standard deviations of parameter estimates.
 - goodnessOfFit: Calculate the deviance of curve fits
 - psychometricFxGraph: Graph the psychometric function overlaid against the raw trial data 
+- moa
 
 ANNOTATED EXAMPLES
 
