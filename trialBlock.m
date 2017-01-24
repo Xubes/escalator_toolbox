@@ -54,6 +54,7 @@ function output = trialBlock(out_dir, id, condition, stim_levels, sub_blocks, sa
 %   entire trial block
 
 simulate = false;
+rng('shuffle');
 
 if nargin > 6
     simulate = true;
@@ -110,6 +111,17 @@ for b = 1:numel(sub_blocks)
     
     disp(sprintf('Starting sub block %d of %d, %s', b, numel(sub_blocks), sub_blocks{b}.mode));
     
+    %Assign staircase start unit based on preferences
+    if strcmp(sub_blocks{b}.mode, 'staircase')        
+        if isnan(sub_blocks{b}.start_unit)
+            if first_block
+                disp('Relative units cannot be calculated in block 1');
+            else
+                sub_blocks{b}.start_unit = findNearestUnit(stim_levels, mu_est);
+            end
+        end
+    end
+                
     %Assign blocked units based on prefs 
     if strcmp(sub_blocks{b}.mode, 'blocked')        
         if strcmp(sub_blocks{b}.abs_rel, 'rel')
