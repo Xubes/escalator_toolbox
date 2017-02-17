@@ -71,11 +71,11 @@ end
     [paramsValues] = PAL_PFML_Fit(STIM, HIT, N, searchGrid, [1 1 0 0 ], @PAL_CumulativeNormal);
     [SD, paramsSim, ~, converged] = PAL_PFML_BootstrapParametric(STIM, N, paramsValues, [1 1 0 0], iterations, @PAL_CumulativeNormal, 'searchGrid', searchGrid);
     muSim = sort(paramsSim(:,1));
-    sigSim = sort(paramsSim(:,2));
+    sigSim = sort(1./paramsSim(:,2));
     output.threshold_sim = mean(muSim);
     output.slope_sim = mean(sigSim);
     output.threshold_sd = SD(1);
-    output.slope_sd = SD(2);
+    output.slope_sd = 1./SD(2);
     output.threshold_CI5 = muSim(floor(iterations * .05));
     output.threshold_CI95 = muSim(floor(iterations * .95));
     output.slope_CI5 = sigSim(floor(iterations * .05));

@@ -254,13 +254,13 @@ for b = 1:numel(sub_blocks)
             if max_neg >= min_pos || abs(max_neg - min_pos) <= sub_blocks{b}.tolerance %Condition for stopping
                 %Run a fit on the current data       
                 paramsValues = fitPsych(trial_unit, trial_resp, stim_levels);
-                mu_est = paramsValues(1);   
+                mu_est = paramsValues.threshold;   
                 break;
             end
         elseif strcmp(sub_blocks{b}.mode, 'blocked')
             if block_i > numel(block) 
                 paramsValues = fitPsych(trial_unit, trial_resp, stim_levels);
-                mu_est = paramsValues(1);   
+                mu_est = paramsValues.threshold;   
                 break;
             end
         elseif strcmp(sub_blocks{b}.mode,'random') 
@@ -268,7 +268,7 @@ for b = 1:numel(sub_blocks)
         elseif strcmp(sub_blocks{b}.mode, 'staircase')
             if block_i > sub_blocks{b}.num_trials
                 paramsValues = fitPsych(trial_unit, trial_resp, stim_levels);
-                mu_est = paramsValues(1);   
+                mu_est = paramsValues.threshold;   
                 break;
             end
         elseif exit == true %Skip next section and exit 
@@ -294,8 +294,8 @@ trial_resp_fit = trial_resp(ismember(trial_subblock,use_blocks));
 
 %final curve fits
 paramsValues = fitPsych(trial_unit_fit, trial_resp_fit, stim_levels);
-mu_est = paramsValues(1);
-sigma_est = 1./paramsValues(2);
+mu_est = paramsValues.threshold;
+sigma_est = paramsValues.slope;
 
 %compile output
 output.id = id;

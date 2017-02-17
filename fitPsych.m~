@@ -14,8 +14,9 @@ function output = fitPsych(varargin)
 %   - stim_levels = array of all possible units used in the study
 %OUTPUT:
 %   - output = struct with two values. output.threshold is the
-%   threshold. output.slopw is the slope of the function (the inverse of
-%   the beta paramter
+%   threshold. output. is the beta parameter of the function, which
+%   is the INVERSE of the slope. Calculate the slope parameter as
+%   1./(paramsValues(2)
 
 if length(varargin) == 1
     output_data = varargin{1};
