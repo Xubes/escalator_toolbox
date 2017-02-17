@@ -4,13 +4,11 @@ function [] = psychometricFxGraph(varargin)
 %number of trials conducted at that unit. Note, this function is designed
 %to take different types of input. See description below for differen
 %options.
-
 %INPUT OPTION 1: Struct input, do not save graph file
 % psychometricFxGraph(output_struct)
 % REQUIRED INPUT :
 %   - output_struct: a struct created by the trialBlock function passed
 %   directly into the function.
-
 %INPUT OPTION 2. Multiple input variables, do not save graph file
 % psychometricFxGraph(id, condition, threshold, slope, trial_unit,
 % trial_resp)
@@ -22,7 +20,6 @@ function [] = psychometricFxGraph(varargin)
 %   - trial_unit = array of trial units presented in the study
 %   - trial_resp = array of responses (1 = positive, 0 = negative)
 %   corresponding to each the trial units in trial_unit
-
 %INPUT OPTION 3. Multiple input variables, save graph file
 % psychometricFxGraph(id, condition, threshold, slope, trial_unit,
 % trial_resp, graph_file)

@@ -9,7 +9,8 @@ function output = createStaircaseBlock(start_unit, down_step, up_step, num_trial
 %REQUIRED INPUTS:
 %   - start_unit = the first unit used in the staircase (must be an
 %   absolute value, not relative to threshold). start_unit will find the
-%   nearest unit based on stim_levels.
+%   nearest unit based on stim_levels. If the first unit used in a
+%   staircase block is the current threshold estimate, enter NaN for start_unit.
 %   - down_step = integer number of steps to decrease after a positive
 %   response (e.g., if stim_levels = 10:.5:50, down_step = 3 would decrease
 %   by 3 * .5 = 1.5 units). 

@@ -1,12 +1,10 @@
 function [paramsValues] = fitPsych(varargin)
 %Fit cumulative Gaussian psychometric function using Palamedes function
 %PAL_PFML_Fit. Two possible input options:
-
 %INPUT OPTION 1: Output struct from trialBlock
 % fitPsych(output_struct)
 %REQUIRED INPUT:
 %   - output_struct = output struct from trialBlock
-
 %INPUT OPTION 2: Multiple variables
 %REQUIRED INPUTS:
 % fitPsych(trial_unit, trial_resp, stim_levels)
@@ -14,7 +12,6 @@ function [paramsValues] = fitPsych(varargin)
 %   - trial_resp = array of responses (1 = positive, 0 = negative)
 %   corresponding to each the trial units in trial_unit
 %   - stim_levels = array of all possible units used in the study
-
 %OUTPUT:
 %   - paramsValues = array with two values. paramsValues(1) is the
 %   threshold. paramsValues(2) is the beta parameter of the function, which
