@@ -39,9 +39,11 @@ end
     
     output.threshold = paramsValues(1);
     output.slope = 1./paramsValues(2);
-%     output.trial_unit = trial_unit;
-%     output.trial_unit_fit = trial_unit;
-%     output.trial_resp = trial_resp;
-%     output.trial_resp_fit = trial_resp;
+    output.trial_unit = trial_unit;
+    output.trial_unit_fit = trial_unit;
+    output.trial_resp = trial_resp;
+    output.trial_resp_fit = trial_resp;
+    output.id = '';
+    output.condition = '';
 end
 
