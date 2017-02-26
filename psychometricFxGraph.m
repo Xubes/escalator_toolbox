@@ -72,8 +72,8 @@ fig = figure();
 succtrials = HIT;
 totaltrials = N;
 
-minx = mu_est - WINDOW_SIZE;
-maxx = mu_est + WINDOW_SIZE;
+minx = min(STIM);%mu_est - WINDOW_SIZE;
+maxx = max(STIM);%mu_est + WINDOW_SIZE;
 
 x = minx:.01:maxx;
 affmu = mu_est;
